@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chia Plot Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section class="container">
+            <main class="row">
+                <label for="space">Free space</label>
+                <article>  
+                    <input type="number" id="space" name="space">
+
+                    <select id="space-unit" name="space-unit">
+                        <option value="GB">GB</option>
+                        <option value="TB">TB</option>
+                    </select><br>
+                
+                    <label class="label" for="plot-type">Compressed Level</label>
+                    <select id="plot-type" name="plot-type">
+                        <option value="NA">NA</option>
+                        <option value="C1">C1</option>
+                        <option value="C2">C2</option>
+                        <option value="C3">C3</option>
+                        <option value="C4">C4</option>
+                        <option value="C5">C5</option>
+                        <option value="C6">C6</option>
+                        <option value="C7">C7</option>
+                        <option value="C8">C8</option>
+                        <option value="C9">C9</option>
+                    </select></article>
+            <div id="results-table"></div>
+
+            <table>
+                <tr>
+                    <th>k32</th>
+                    <th>k33</th>
+                    <th>k34</th>
+                    <th>Space Used</th>
+                </tr>
+                <tr>
+                    <td id="k32-1">0</td>
+                    <td id="k32-2">0</td>
+                    <td id="k32-3">0</td>
+                    <td id="k32-used-space">0 GB (≈<strong>0%</strong>)</td>
+                </tr>
+                <tr>
+                    <td id="k32-33-1">0</td>
+                    <td id="k32-33-2">0</td>
+                    <td id="k32-33-3">0</td>
+                    <td id="k32-33-used-space">0 GB (≈<strong>0%</strong>)</td>
+                </tr>
+                <tr>
+                    <td id="k32-33-34-1">0</td>
+                    <td id="k32-33-34-2">0</td>
+                    <td id="k32-33-34-3">0</td>
+                    <td id="k32-33-34-used-space">0 GB (≈<strong>0%</strong>)</td>
+                </tr>
+            </table>
+            <span id="text"></span>
+        </main>
+    </section>
+        <script src="main.js"></script>
+    </body>
+</html>
