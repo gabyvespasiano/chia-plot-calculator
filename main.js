@@ -15,6 +15,7 @@ const tables ={
     "k33":{1:"k32-33-1",2:"k32-33-2",3:"k32-33-3",4:"k32-33-used-space"},
     "k34":{1:"k32-33-34-1",2:"k32-33-34-2",3:"k32-33-34-3",4:"k32-33-34-used-space"}
 }
+
 const spaceInput = document.getElementById("space");
 const spaceUnit = document.getElementById("space-unit");
 const plotType = document.getElementById("plot-type");
@@ -22,11 +23,49 @@ const resultsTableDiv = document.getElementById("results-table");
 
 const calc = document.getElementById("text");
 
-spaceInput.addEventListener("change", calculatePlotsAndSpace);
-plotType.addEventListener("change", calculatePlotsAndSpace);
-spaceUnit.addEventListener("change", calculatePlotsAndSpace);
+spaceInput.addEventListener("change", checkactive);
+plotType.addEventListener("change", checkactive);
+spaceUnit.addEventListener("change", checkactive);
 
+const norm = document.getElementById("normal");
+const ck32 = document.getElementById("Ccompared");
+const norm_cont = document.getElementById("container-k234");
+const k32_cont = document.getElementById("container-k32");
 
+norm.addEventListener("click",normal);
+ck32.addEventListener("click",ccompared);
+
+function normal(){
+  norm.classList.add("active"); 
+  ck32.classList.remove("active");
+
+  norm_cont.classList.remove("hidden");
+  k32_cont.classList.add("hidden");
+
+  text.innerText = "";
+  spaceInput.value = 0;
+  checkactive();
+
+}
+function ccompared(){
+  ck32.classList.add("active"); 
+  norm.classList.remove("active"); 
+
+  k32_cont.classList.remove("hidden");
+  norm_cont.classList.add("hidden");
+
+  text.innerText = "";
+  spaceInput.value = 0;
+  checkactive();  
+}
+function checkactive(){
+  if (ck32.className.includes("active")){
+    calculateK32();
+    
+  }else{
+    calculatePlotsAndSpace();
+  }
+}
 function calculatePlotsAndSpace() {
 	let space = spaceInput.value;
 	const plotUnit = plotSizes[plotType.value];
@@ -110,8 +149,6 @@ function calculatePlotsAndSpace() {
     return n;
   }
 
-
-
 function complete(table,result,valor){
     c1 = document.getElementById(table[1]);
     c2 = document.getElementById(table[2]);
@@ -133,4 +170,126 @@ function complete(table,result,valor){
         c3.innerText = 0;
         c4.innerHTML = result.k32Only.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (result.k32Only.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
     }
+}
+
+function calculateK32(){
+  // plotSizes.NA.k32
+  // plotSizes.C1.k32
+  // plotSizes.C2.k32
+  // plotSizes.C3.k32
+  // plotSizes.C4.k32
+  // plotSizes.C5.k32
+  // plotSizes.C6.k32
+  // plotSizes.C7.k32
+  // plotSizes.C8.k32
+  // plotSizes.C9.k32
+  let val = spaceInput.value;
+    if (spaceUnit.value == "TB"){
+        val = space*1000
+    }
+  const n = {
+    na: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c1: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c2: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c3: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c4: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c5: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c6: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c7: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c8: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c9: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    }
+  }
+
+    n.na.numberOfK32Plots = Math.floor(val / plotSizes.NA.k32);
+    n.na.spaceUsedInGb = n.na.numberOfK32Plots * plotSizes.NA.k32;
+
+    n.c1.numberOfK32Plots = Math.floor(val / plotSizes.C1.k32);
+    n.c1.spaceUsedInGb = n.c1.numberOfK32Plots * plotSizes.C1.k32;
+
+    n.c2.numberOfK32Plots = Math.floor(val / plotSizes.C2.k32);
+    n.c2.spaceUsedInGb = n.c2.numberOfK32Plots * plotSizes.C2.k32;
+
+    n.c3.numberOfK32Plots = Math.floor(val / plotSizes.C3.k32);
+    n.c3.spaceUsedInGb = n.c3.numberOfK32Plots * plotSizes.C3.k32;
+
+    n.c4.numberOfK32Plots = Math.floor(val / plotSizes.C4.k32);
+    n.c4.spaceUsedInGb = n.c4.numberOfK32Plots * plotSizes.C4.k32;
+
+    n.c5.numberOfK32Plots = Math.floor(val / plotSizes.C5.k32);
+    n.c5.spaceUsedInGb = n.c5.numberOfK32Plots * plotSizes.C5.k32;
+
+    n.c6.numberOfK32Plots = Math.floor(val / plotSizes.C6.k32);
+      n.c6.spaceUsedInGb = n.c6.numberOfK32Plots * plotSizes.C6.k32;
+
+    n.c7.numberOfK32Plots = Math.floor(val / plotSizes.C7.k32);
+    n.c7.spaceUsedInGb = n.c7.numberOfK32Plots * plotSizes.C7.k32;
+
+    n.c8.numberOfK32Plots = Math.floor(val / plotSizes.C8.k32);
+    n.c8.spaceUsedInGb = n.c8.numberOfK32Plots * plotSizes.C8.k32;
+
+    n.c9.numberOfK32Plots = Math.floor(val / plotSizes.C9.k32);
+    n.c9.spaceUsedInGb = n.c9.numberOfK32Plots * plotSizes.C9.k32;
+
+    cargar(n,val);
+}
+function cargar(resultado,valor){
+document.getElementById("c0").innerText= resultado.na.numberOfK32Plots;
+document.getElementById("c0g").innerHTML= resultado.na.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (resultado.na.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c1").innerText= resultado.c1.numberOfK32Plots;
+document.getElementById("c1g").innerHTML= resultado.c1.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (resultado.c1.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c2").innerText= resultado.c2.numberOfK32Plots;
+document.getElementById("c2g").innerHTML= resultado.c2.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (resultado.c2.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c3").innerText= resultado.c3.numberOfK32Plots;
+document.getElementById("c3g").innerHTML= resultado.c3.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (resultado.c3.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c4").innerText= resultado.c4.numberOfK32Plots;
+document.getElementById("c4g").innerHTML= resultado.c4.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (resultado.c4.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c5").innerText= resultado.c5.numberOfK32Plots;
+document.getElementById("c5g").innerHTML= resultado.c5.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (resultado.c5.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c6").innerText= resultado.c6.numberOfK32Plots;
+document.getElementById("c6g").innerHTML= resultado.c6.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (resultado.c6.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c7").innerText= resultado.c7.numberOfK32Plots;
+document.getElementById("c7g").innerHTML= resultado.c7.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (resultado.c7.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c8").innerText= resultado.c8.numberOfK32Plots;
+document.getElementById("c8g").innerHTML= resultado.c8.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (resultado.c8.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c9").innerText= resultado.c9.numberOfK32Plots;
+document.getElementById("c9g").innerHTML= resultado.c9.spaceUsedInGb.toFixed(3) + " GB (≈<strong>" + (resultado.c9.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
 }

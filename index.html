@@ -8,16 +8,26 @@
     <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <section class="container">
-            <main class="row">
-                <label for="space">Free space</label>
-                <article>  
-                    <input type="number" id="space" name="space">
+        <nav>
+            <ul>
+              <li><a href="#" id="normal" class="active">Normal</a></li>
+              <li><a href="#" id="Ccompared">ALL C compared</a></li>
+            </ul>
+          </nav>
+          <article class="container">
+            <label for="space">Free space</label><br>
 
-                    <select id="space-unit" name="space-unit">
-                        <option value="GB">GB</option>
-                        <option value="TB">TB</option>
-                    </select><br>
+          <input type="number" id="space" name="space">
+
+          <select id="space-unit" name="space-unit">
+              <option value="GB">GB</option>
+              <option value="TB">TB</option>
+          </select>
+        </article>
+        <section id="container-k234" class="container nomargin">
+            <main class="row">
+
+                <article>  
                 
                     <label class="label" for="plot-type">Compressed Level</label>
                     <select id="plot-type" name="plot-type">
@@ -60,9 +70,71 @@
                     <td id="k32-33-34-used-space">0 GB (≈<strong>0%</strong>)</td>
                 </tr>
             </table>
-            <span id="text"></span>
+            
         </main>
     </section>
+
+    <section  id="container-k32" class="container hidden">
+        <table>
+            <tr>
+                <th>Compression level</th>
+                <th>Pots</th>
+                <th>Space Used</th>
+            </tr>
+            <tr>
+                <td class="b">NA</td>
+                <td id="c0">0</td>
+                <td id="c0g">0 GB (≈<strong>0%</strong>)</td>
+            </tr>
+            <tr>
+                <td class="b">C1</td>
+                <td id="c1">0</td>
+                <td id="c1g">0 GB (≈<strong>0%</strong>)</td>
+            </tr>
+            <tr>
+                <td class="b">C2</td>
+                <td id="c2">0</td>
+                <td id="c2g">0 GB (≈<strong>0%</strong>)</td>
+            </tr>
+            <tr>
+                <td class="b">C3</td>
+                <td  id="c3">0</td>
+                <td id="c3g">0 GB (≈<strong>0%</strong>)</td>
+            </tr>
+            <tr>
+                <td class="b">C4</td>
+                <td id="c4">0</td>
+                <td id="c4g">0 GB (≈<strong>0%</strong>)</td>
+            </tr>
+            <tr>
+                <td class="b">C5</td>
+                <td id="c5">0</td>
+                <td id="c5g">0 GB (≈<strong>0%</strong>)</td>
+            </tr>
+            <tr>
+                <td class="b">C6</td>
+                <td id="c6">0</td>
+                <td id="c6g">0 GB (≈<strong>0%</strong>)</td>
+            </tr>      
+            <tr>
+                <td class="b">C7</td>
+                <td id="c7">0</td>
+                <td id="c7g">0 GB (≈<strong>0%</strong>)</td>
+            </tr>
+            <tr>
+                <td class="b">C8</td>
+                <td  id="c8">0</td>
+                <td id="c8g">0 GB (≈<strong>0%</strong>)</td>
+            </tr>
+            <tr>
+                <td class="b">C9</td>
+                <td  id="c9">0</td>
+                <td id="c9g">0 GB (≈<strong>0%</strong>)</td>
+            </tr>
+        </table>
+
+    </section>
+    <span id="text" class="container nomargin"></span>
         <script src="main.js"></script>
     </body>
 </html>
