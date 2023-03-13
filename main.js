@@ -185,7 +185,7 @@ function calculateK32(){
   // plotSizes.C9.k32
   let val = spaceInput.value;
     if (spaceUnit.value == "TB"){
-        val = space*1000
+        val = val*1000
     }
   const n = {
     na: {
