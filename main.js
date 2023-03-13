@@ -1,15 +1,16 @@
 const plotSizes = {
-    "NA" : {"k32": 108.837, "k33": 224.227, "k34": 461.535},
-    "C1" : {"k32": 90.409 , "k33": 186.261, "k34": 383.389},
-    "C2" : {"k32": 88.691 , "k33": 182.722, "k34": 376.104},
-    "C3" : {"k32": 86.973 , "k33": 179.183, "k34": 368.818},
-    "C4" : {"k32": 85.255 , "k33": 175.643, "k34": 361.533},
-    "C5" : {"k32": 83.537 , "k33": 171.261, "k34": 354.248},
-    "C6" : {"k32": 81.819 , "k33": 167.825, "k34": 346.962},
-    "C7" : {"k32": 80.101 , "k33": 163.209, "k34": 339.677},
-    "C8" : {"k32": 76.557 , "k33": 156.229, "k34": 324.648},
-    "C9" : {"k32": 73.121 , "k33": 150.645, "k34": 310.077}
+    "NA" : {"k30": 25.662,"k31": 53.687,"k32": 108.837, "k33": 224.227, "k34": 461.535},
+    "C1" : {"k30": 20.642,"k31": 42.210,"k32": 90.409 , "k33": 186.261, "k34": 383.389},
+    "C2" : {"k30": 20.218,"k31": 41.380,"k32": 88.691 , "k33": 182.722, "k34": 376.104},
+    "C3" : {"k30": 19.829,"k31": 40.580,"k32": 86.973 , "k33": 179.183, "k34": 368.818},
+    "C4" : {"k30": 19.417,"k31": 39.740,"k32": 85.255 , "k33": 175.643, "k34": 361.533},
+    "C5" : {"k30": 18.989,"k31": 38.920,"k32": 83.537 , "k33": 171.261, "k34": 354.248},
+    "C6" : {"k30": 18.595,"k31": 38.120,"k32": 81.819 , "k33": 167.825, "k34": 346.962},
+    "C7" : {"k30": 18.191,"k31": 37.300,"k32": 80.101 , "k33": 163.209, "k34": 339.677},
+    "C8" : {"k30": 17.527,"k31": 35.800,"k32": 76.557 , "k33": 156.229, "k34": 324.648},
+    "C9" : {"k30": 16.711,"k31": 34.120,"k32": 73.121 , "k33": 150.645, "k34": 310.077}
   };
+
 const tables ={
     "k32":{1:"k32-1",2:"k32-2",3:"k32-3",4:"k32-used-space"},
     "k33":{1:"k32-33-1",2:"k32-33-2",3:"k32-33-3",4:"k32-33-used-space"},
@@ -19,6 +20,7 @@ const tables ={
 const spaceInput = document.getElementById("space");
 const spaceUnit = document.getElementById("space-unit");
 const plotType = document.getElementById("plot-type");
+const plotk = document.getElementById("plot-k");
 const resultsTableDiv = document.getElementById("results-table");
 
 const calc = document.getElementById("text");
@@ -26,6 +28,7 @@ const calc = document.getElementById("text");
 spaceInput.addEventListener("change", checkactive);
 plotType.addEventListener("change", checkactive);
 spaceUnit.addEventListener("change", checkactive);
+plotk.addEventListener("change", checkactive);
 
 const norm = document.getElementById("normal");
 const ck32 = document.getElementById("Ccompared");
@@ -183,6 +186,7 @@ function calculateK32(){
   // plotSizes.C7.k32
   // plotSizes.C8.k32
   // plotSizes.C9.k32
+  
   let val = spaceInput.value;
     if (spaceUnit.value == "TB"){
         val = val*1000
@@ -230,35 +234,35 @@ function calculateK32(){
     }
   }
 
-    n.na.numberOfK32Plots = Math.floor(val / plotSizes.NA.k32);
-    n.na.spaceUsedInGb = n.na.numberOfK32Plots * plotSizes.NA.k32;
+    n.na.numberOfK32Plots = Math.floor(val / plotSizes.NA[plotk.value]);
+    n.na.spaceUsedInGb = n.na.numberOfK32Plots * plotSizes.NA[plotk.value];
 
-    n.c1.numberOfK32Plots = Math.floor(val / plotSizes.C1.k32);
-    n.c1.spaceUsedInGb = n.c1.numberOfK32Plots * plotSizes.C1.k32;
+    n.c1.numberOfK32Plots = Math.floor(val / plotSizes.C1[plotk.value]);
+    n.c1.spaceUsedInGb = n.c1.numberOfK32Plots * plotSizes.C1[plotk.value];
 
-    n.c2.numberOfK32Plots = Math.floor(val / plotSizes.C2.k32);
-    n.c2.spaceUsedInGb = n.c2.numberOfK32Plots * plotSizes.C2.k32;
+    n.c2.numberOfK32Plots = Math.floor(val / plotSizes.C2[plotk.value]);
+    n.c2.spaceUsedInGb = n.c2.numberOfK32Plots * plotSizes.C2[plotk.value];
 
-    n.c3.numberOfK32Plots = Math.floor(val / plotSizes.C3.k32);
-    n.c3.spaceUsedInGb = n.c3.numberOfK32Plots * plotSizes.C3.k32;
+    n.c3.numberOfK32Plots = Math.floor(val / plotSizes.C3[plotk.value]);
+    n.c3.spaceUsedInGb = n.c3.numberOfK32Plots * plotSizes.C3[plotk.value];
 
-    n.c4.numberOfK32Plots = Math.floor(val / plotSizes.C4.k32);
-    n.c4.spaceUsedInGb = n.c4.numberOfK32Plots * plotSizes.C4.k32;
+    n.c4.numberOfK32Plots = Math.floor(val / plotSizes.C4[plotk.value]);
+    n.c4.spaceUsedInGb = n.c4.numberOfK32Plots * plotSizes.C4[plotk.value];
 
-    n.c5.numberOfK32Plots = Math.floor(val / plotSizes.C5.k32);
-    n.c5.spaceUsedInGb = n.c5.numberOfK32Plots * plotSizes.C5.k32;
+    n.c5.numberOfK32Plots = Math.floor(val / plotSizes.C5[plotk.value]);
+    n.c5.spaceUsedInGb = n.c5.numberOfK32Plots * plotSizes.C5[plotk.value];
 
-    n.c6.numberOfK32Plots = Math.floor(val / plotSizes.C6.k32);
-      n.c6.spaceUsedInGb = n.c6.numberOfK32Plots * plotSizes.C6.k32;
+    n.c6.numberOfK32Plots = Math.floor(val / plotSizes.C6[plotk.value]);
+      n.c6.spaceUsedInGb = n.c6.numberOfK32Plots * plotSizes.C6[plotk.value];
 
-    n.c7.numberOfK32Plots = Math.floor(val / plotSizes.C7.k32);
-    n.c7.spaceUsedInGb = n.c7.numberOfK32Plots * plotSizes.C7.k32;
+    n.c7.numberOfK32Plots = Math.floor(val / plotSizes.C7[plotk.value]);
+    n.c7.spaceUsedInGb = n.c7.numberOfK32Plots * plotSizes.C7[plotk.value];
 
-    n.c8.numberOfK32Plots = Math.floor(val / plotSizes.C8.k32);
-    n.c8.spaceUsedInGb = n.c8.numberOfK32Plots * plotSizes.C8.k32;
+    n.c8.numberOfK32Plots = Math.floor(val / plotSizes.C8[plotk.value]);
+    n.c8.spaceUsedInGb = n.c8.numberOfK32Plots * plotSizes.C8[plotk.value];
 
-    n.c9.numberOfK32Plots = Math.floor(val / plotSizes.C9.k32);
-    n.c9.spaceUsedInGb = n.c9.numberOfK32Plots * plotSizes.C9.k32;
+    n.c9.numberOfK32Plots = Math.floor(val / plotSizes.C9[plotk.value]);
+    n.c9.spaceUsedInGb = n.c9.numberOfK32Plots * plotSizes.C9[plotk.value];
 
     cargar(n,val);
 }
