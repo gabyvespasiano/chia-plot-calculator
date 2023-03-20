@@ -43,10 +43,47 @@ const tables ={
     "k33":{1:"k32-33-1",2:"k32-33-2",3:"k32-33-3",4:"k32-33-used-space"},
     "k34":{1:"k32-33-34-1",2:"k32-33-34-2",3:"k32-33-34-3",4:"k32-33-34-used-space"}
 }
-
+const ctype = {
+  "NA":"C1",
+  "C1":"NA",
+  "C2":"C1",
+  "C3":"C2",
+  "C4":"C3",
+  "C5":"C4",
+  "C6":"C5",
+  "C7":"C6",
+  "C8":"C7",
+  "C9":"C8"
+}
+const hdd_predef= {
+  "GB": {
+    "4TB":  4000,
+    "6TB":  6000,
+    "8TB":  8000,
+    "10TB": 9999.97,
+    "12TB": 12000,
+    "14TB": 13999.98,
+    "16TB": 16000,
+    "18TB": 17999.99,
+    "20TB": 20000
+  },
+  "GIB": {
+    "4TB":  3725.3,
+    "6TB":  5588.0,
+    "8TB":  7450.6,
+    "10TB": 9313.2,
+    "12TB": 11175.9,
+    "14TB": 13038.5,
+    "16TB": 14901.2,
+    "18TB": 16763.8,
+    "20TB": 18626.5
+  }
+}
 const spaceInput = document.getElementById("space");
 const spaceUnit = document.getElementById("space-unit");
 const plotType = document.getElementById("plot-type");
+const efic_plotType = document.getElementById("eficient-plot-type");
+const HDD = document.getElementById("HDD");
 const plotk = document.getElementById("plot-k");
 const type = document.getElementById("type");
 const resultsTableDiv = document.getElementById("results-table");
@@ -58,42 +95,86 @@ plotType.addEventListener("change", checkactive);
 spaceUnit.addEventListener("change", checkactive);
 plotk.addEventListener("change", checkactive);
 type.addEventListener("change", checkactive);
+efic_plotType.addEventListener("change", checkactive);
+
+HDD.addEventListener("change", hdd_set);
 
 const norm = document.getElementById("normal");
 const ck32 = document.getElementById("Ccompared");
+const eficient = document.getElementById("eficient");
+
 const norm_cont = document.getElementById("container-k234");
 const k32_cont = document.getElementById("container-k32");
+const eficient_cont = document.getElementById("container-eficient");
 
 norm.addEventListener("click",normal);
 ck32.addEventListener("click",ccompared);
+eficient.addEventListener("click",efic);
 
-function normal(){
-  norm.classList.add("active"); 
-  ck32.classList.remove("active");
-
-  norm_cont.classList.remove("hidden");
-  k32_cont.classList.add("hidden");
-
+function hdd_set(){
   text.innerText = "";
-  spaceInput.value = 0;
+  spaceInput.value = hdd_predef[spaceUnit.value][HDD.value];
   checkactive();
+}
+function normal(){
+  actives("norm");
 
 }
 function ccompared(){
-  ck32.classList.add("active"); 
-  norm.classList.remove("active"); 
+  actives("ck32");
+}
+function efic(){
+  actives("efic");
+}
 
-  k32_cont.classList.remove("hidden");
-  norm_cont.classList.add("hidden");
+function actives(a){
+  switch (a){
+    case "norm":
+      norm.classList.add("active"); 
+      ck32.classList.remove("active");
+      eficient.classList.remove("active");
+    
+      norm_cont.classList.remove("hidden");
+      k32_cont.classList.add("hidden");
+      eficient_cont.classList.add("hidden");
+    
 
+      break;
+    case "ck32":
+      ck32.classList.add("active"); 
+      norm.classList.remove("active"); 
+      eficient.classList.remove("active");
+    
+      k32_cont.classList.remove("hidden");
+      norm_cont.classList.add("hidden");
+      eficient_cont.classList.add("hidden");
+    
+  
+      break;
+    case "efic":
+      ck32.classList.remove("active"); 
+      norm.classList.remove("active"); 
+      eficient.classList.add("active");
+    
+      k32_cont.classList.add("hidden");
+      norm_cont.classList.add("hidden");
+      eficient_cont.classList.remove("hidden");
+    
+  
+      break;
+  }
   text.innerText = "";
-  spaceInput.value = 0;
-  checkactive();  
+  // if (HDD.value = ""){
+  //   spaceInput.value = 0;
+  // }
+  checkactive();
 }
 function checkactive(){
   if (ck32.className.includes("active")){
     calculateK32();
     
+  }else if (eficient.className.includes("active")){
+    eficiente();
   }else{
     calculatePlotsAndSpace();
   }
@@ -102,7 +183,11 @@ function calculatePlotsAndSpace() {
 	let space = spaceInput.value;
 	const plotUnit = plotSizes[type.value][plotType.value];
     if (spaceUnit.value == "TB"){
+      if (type.value == "GIB"){
+        space = space*1024
+      }else{
         space = space*1000
+      }
     }
     // Obtener los resultados de la función (asumiendo que la función se llama "calculateCombinations")
     const results = calculateOptimalCombination(space,plotUnit.k32,plotUnit.k33,plotUnit.k34);
@@ -217,9 +302,13 @@ function calculateK32(){
   // plotSizes.C9.k32
   
   let val = spaceInput.value;
-    if (spaceUnit.value == "TB"){
-        val = val*1000
+  if (spaceUnit.value == "TB"){
+    if (type.value == "GIB"){
+      val = val*1024
+    }else{
+      val = val*1000
     }
+  }
   const n = {
     na: {
       numberOfK32Plots: 0,
@@ -325,4 +414,49 @@ document.getElementById("c8g").innerHTML= resultado.c8.spaceUsedInGb.toFixed(3) 
 
 document.getElementById("c9").innerText= resultado.c9.numberOfK32Plots;
 document.getElementById("c9g").innerHTML= resultado.c9.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c9.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+}
+
+function eficiente(){
+  let val = spaceInput.value;
+  if (val > 0){
+    if (spaceUnit.value == "TB"){
+      if (type.value == "GIB"){
+        val = val*1024
+      }else{
+        val = val*1000
+      }
+    }
+    document.getElementById("eficient-t1").innerText = efic_plotType.value;
+    document.getElementById("eficient-t2").innerText = ctype[efic_plotType.value];
+
+    let main = Math.floor(val / plotSizes[type.value][efic_plotType.value][plotk.value]);
+    let space_main = main * plotSizes[type.value][efic_plotType.value][plotk.value];
+    document.getElementById("eficient-1").innerText = main;
+    document.getElementById("eficient-3-plots").innerText = main;
+    
+    document.getElementById("eficient-used-space-1").innerHTML= space_main.toFixed(3) + " " + type.value + " (≈<strong>" + (space_main/val*100).toFixed(2) + "%</strong>)";
+
+
+    let found = false;
+    let second = 0;
+    let tempvalue = 0;
+    while(!found){
+      main -= 1
+      second += 1
+      tempvalue = (main * plotSizes[type.value][efic_plotType.value][plotk.value]) + (second * plotSizes[type.value][ctype[efic_plotType.value]][plotk.value]);
+      //console.log(tempvalue);
+     if (tempvalue > val){
+        found=true;
+        main += 1
+        second -= 1
+        tempvalue = (main * plotSizes[type.value][efic_plotType.value][plotk.value]) + (second * plotSizes[type.value][ctype[efic_plotType.value]][plotk.value]);
+        document.getElementById("eficient-01").innerText = main;
+        document.getElementById("eficient-02").innerText = second;
+        document.getElementById("eficient-used-space-01").innerHTML= tempvalue.toFixed(3) + " " + type.value + " (≈<strong>" + (tempvalue/val*100).toFixed(2) + "%</strong>)";
+        document.getElementById("eficient-03-plots").innerText = main + second;
+
+      }
+      
+    }
+  }
 }

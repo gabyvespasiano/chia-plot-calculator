@@ -12,10 +12,25 @@
             <ul>
               <li><a href="#" id="normal" class="active">Normal</a></li>
               <li><a href="#" id="Ccompared">ALL C compared</a></li>
+              <li><a href="#" id="eficient">Efficiency mode</a></li>
             </ul>
           </nav>
           <article class="container">
+            <label for="HDD" class="right">Typical</label>
             <label for="space">Free space</label><br>
+
+            <select id="HDD" name="HDD">
+                <option value="">HDD</option>
+                <option value="4TB">4TB</option>
+                <option value="6TB">6TB</option>
+                <option value="8TB">8TB</option>
+                <option value="10TB">10TB</option>
+                <option value="12TB">12TB</option>
+                <option value="14TB">14TB</option>
+                <option value="16TB">16TB</option>
+                <option value="18TB">18TB</option>
+                <option value="20TB">20TB</option>
+            </select>
 
           <input type="number" id="space" name="space">
 
@@ -147,6 +162,48 @@
         </table>
 
     </section>
+    <section id="container-eficient" class="container nomargin hidden">
+        <main class="row">
+
+            <article>  
+            
+                <label class="label" for="plot-type">Compressed Level</label>
+                <select id="eficient-plot-type" name="plot-type">
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                    <option value="C3">C3</option>
+                    <option value="C4">C4</option>
+                    <option value="C5">C5</option>
+                    <option value="C6">C6</option>
+                    <option value="C7">C7</option>
+                    <option value="C8" selected="selected">C8</option>
+                    <option value="C9">C9</option>
+                </select></article>
+        <div id="results-table"></div>
+
+        <table>
+            <tr>
+                <th id="eficient-t1">NA</th>
+                <th id="eficient-t2">NA</th>
+                <th>Space Used</th>
+                <th>Total Plots</th>                
+            </tr>
+            <tr>
+                <td id="eficient-1">0</td>
+                <td id="eficient-2">0</td>
+                <td id="eficient-used-space-1">0 GB (≈<strong>0%</strong>)</td>
+                <td id="eficient-3-plots">0</td>
+            </tr>
+            <tr>
+                <td id="eficient-01">0</td>
+                <td id="eficient-02">0</td>
+                <td id="eficient-used-space-01">0 GB (≈<strong>0%</strong>)</td>
+                <td id="eficient-03-plots">0</td>
+            </tr>
+        </table>
+        
+    </main>
+</section>
     <span id="text" class="container nomargin"></span>
         <script src="main.js"></script>
     </body>
