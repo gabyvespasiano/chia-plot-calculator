@@ -113,12 +113,13 @@ eficient.addEventListener("click",efic);
 
 function hdd_set(){
   text.innerText = "";
-  spaceInput.value = hdd_predef[type.value][HDD.value];
+  if (HDD.value != "0"){
+    spaceInput.value = hdd_predef[type.value][HDD.value];
+  }
   checkactive();
 }
 function typee(){
   hdd_set()
-  checkactive()
 }
 function normal(){
   actives("norm");
