@@ -94,7 +94,7 @@ spaceInput.addEventListener("change", checkactive);
 plotType.addEventListener("change", checkactive);
 spaceUnit.addEventListener("change", checkactive);
 plotk.addEventListener("change", checkactive);
-type.addEventListener("change", checkactive);
+type.addEventListener("change", typee);
 efic_plotType.addEventListener("change", checkactive);
 
 HDD.addEventListener("change", hdd_set);
@@ -113,8 +113,12 @@ eficient.addEventListener("click",efic);
 
 function hdd_set(){
   text.innerText = "";
-  spaceInput.value = hdd_predef[spaceUnit.value][HDD.value];
+  spaceInput.value = hdd_predef[type.value][HDD.value];
   checkactive();
+}
+function typee(){
+  hdd_set()
+  checkactive()
 }
 function normal(){
   actives("norm");
