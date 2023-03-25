@@ -450,7 +450,7 @@ function eficiente(){
       second += 1
       tempvalue = (main * plotSizes[type.value][efic_plotType.value][plotk.value]) + (second * plotSizes[type.value][ctype[efic_plotType.value]][plotk.value]);
       //console.log(tempvalue);
-     if (tempvalue > val){
+     if (tempvalue > val || main < 0){
         found=true;
         main += 1
         second -= 1
