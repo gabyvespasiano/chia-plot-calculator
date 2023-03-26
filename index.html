@@ -32,36 +32,59 @@
                 <option value="20TB">20TB</option>
             </select>
 
-          <input type="number" id="space" name="space">
+          <input type="number" id="space" name="space" min="0">
 
-          <select id="space-unit" name="space-unit">
+          <select id="space-unit" style="display: none;" name="space-unit">
               <option value="GB">GB</option>
               <option value="TB">TB</option>
           </select>
-          <label for="type">GB OR GIB</label>
+          <!-- <label for="type">GB OR GIB</label> -->
           <select id="type" name="type">
             <option value="GB">GB</option>
             <option value="GIB">GIB</option>            
           </select>
+          <!-- selector de modo normal -->
+          <label id="plot-label" class="label" for="plot-type">Preferred C</label>
+          <select id="plot-type" name="plot-type">
+              <option value="NA">NA</option>
+              <option value="C1">C1</option>
+              <option value="C2">C2</option>
+              <option value="C3">C3</option>
+              <option value="C4">C4</option>
+              <option value="C5">C5</option>
+              <option value="C6">C6</option>
+              <option value="C7">C7</option>
+              <option value="C8">C8</option>
+              <option value="C9">C9</option>
+          </select>
+          <!-- selector modo all C compared -->
+          <label id="plot-k_label" class="label hidden" for="plot-k">Preferred K size</label>
+          <select id="plot-k" class="hidden" name="plot-k">
+              <option value="k30">K30</option>
+              <option value="k31">K31</option>
+              <option value="k32" selected="selected">K32</option>
+              <option value="k33">K33</option>
+              <option value="k34">K34</option>
+          </select>
+          <!-- selector de modo eficiencia -->
+          <label id="eficient-label" class="label hidden" for="plot-type">Preferred C</label>
+          <select id="eficient-plot-type" class="hidden" name="plot-type">
+              <option value="C1">C1</option>
+              <option value="C2">C2</option>
+              <option value="C3">C3</option>
+              <option value="C4">C4</option>
+              <option value="C5">C5</option>
+              <option value="C6">C6</option>
+              <option value="C7">C7</option>
+              <option value="C8" selected="selected">C8</option>
+              <option value="C9">C9</option>
+          </select>
         </article>
+             
+
         <section id="container-k234" class="container nomargin">
             <main class="row">
 
-                <article>  
-                
-                    <label class="label" for="plot-type">Compressed Level</label>
-                    <select id="plot-type" name="plot-type">
-                        <option value="NA">NA</option>
-                        <option value="C1">C1</option>
-                        <option value="C2">C2</option>
-                        <option value="C3">C3</option>
-                        <option value="C4">C4</option>
-                        <option value="C5">C5</option>
-                        <option value="C6">C6</option>
-                        <option value="C7">C7</option>
-                        <option value="C8">C8</option>
-                        <option value="C9">C9</option>
-                    </select></article>
             <div id="results-table"></div>
 
             <table>
@@ -77,7 +100,7 @@
                     <td id="k32-3">0</td>
                     <td id="k32-used-space">0 GB (≈<strong>0%</strong>)</td>
                 </tr>
-                <tr>
+                <tr class="roww">
                     <td id="k32-33-1">0</td>
                     <td id="k32-33-2">0</td>
                     <td id="k32-33-3">0</td>
@@ -94,15 +117,8 @@
         </main>
     </section>
 
-    <section  id="container-k32" class="container hidden">
-        <label class="label" for="plot-k">Select K plot value</label>
-        <select id="plot-k" name="plot-k">
-            <option value="k30">K30</option>
-            <option value="k31">K31</option>
-            <option value="k32" selected="selected">K32</option>
-            <option value="k33">K33</option>
-            <option value="k34">K34</option>
-        </select></article>
+    <section  id="container-k32" class="container hidden  nomargin">
+
         <table>
             <tr>
                 <th>Compression level</th>
@@ -114,7 +130,7 @@
                 <td id="c0">0</td>
                 <td id="c0g">0 GB (≈<strong>0%</strong>)</td>
             </tr>
-            <tr>
+            <tr class="roww">
                 <td class="b">C1</td>
                 <td id="c1">0</td>
                 <td id="c1g">0 GB (≈<strong>0%</strong>)</td>
@@ -124,7 +140,7 @@
                 <td id="c2">0</td>
                 <td id="c2g">0 GB (≈<strong>0%</strong>)</td>
             </tr>
-            <tr>
+            <tr class="roww">
                 <td class="b">C3</td>
                 <td  id="c3">0</td>
                 <td id="c3g">0 GB (≈<strong>0%</strong>)</td>
@@ -134,7 +150,7 @@
                 <td id="c4">0</td>
                 <td id="c4g">0 GB (≈<strong>0%</strong>)</td>
             </tr>
-            <tr>
+            <tr class="roww">
                 <td class="b">C5</td>
                 <td id="c5">0</td>
                 <td id="c5g">0 GB (≈<strong>0%</strong>)</td>
@@ -144,7 +160,7 @@
                 <td id="c6">0</td>
                 <td id="c6g">0 GB (≈<strong>0%</strong>)</td>
             </tr>      
-            <tr>
+            <tr class="roww">
                 <td class="b">C7</td>
                 <td id="c7">0</td>
                 <td id="c7g">0 GB (≈<strong>0%</strong>)</td>
@@ -154,7 +170,7 @@
                 <td  id="c8">0</td>
                 <td id="c8g">0 GB (≈<strong>0%</strong>)</td>
             </tr>
-            <tr>
+            <tr class="roww">
                 <td class="b">C9</td>
                 <td  id="c9">0</td>
                 <td id="c9g">0 GB (≈<strong>0%</strong>)</td>
@@ -165,20 +181,7 @@
     <section id="container-eficient" class="container nomargin hidden">
         <main class="row">
 
-            <article>  
-            
-                <label class="label" for="plot-type">Compressed Level</label>
-                <select id="eficient-plot-type" name="plot-type">
-                    <option value="C1">C1</option>
-                    <option value="C2">C2</option>
-                    <option value="C3">C3</option>
-                    <option value="C4">C4</option>
-                    <option value="C5">C5</option>
-                    <option value="C6">C6</option>
-                    <option value="C7">C7</option>
-                    <option value="C8" selected="selected">C8</option>
-                    <option value="C9">C9</option>
-                </select></article>
+
         <div id="results-table"></div>
 
         <table>
@@ -194,17 +197,26 @@
                 <td id="eficient-used-space-1">0 GB (≈<strong>0%</strong>)</td>
                 <td id="eficient-3-plots">0</td>
             </tr>
-            <tr>
+            <tr class="roww">
                 <td id="eficient-01">0</td>
                 <td id="eficient-02">0</td>
                 <td id="eficient-used-space-01">0 GB (≈<strong>0%</strong>)</td>
                 <td id="eficient-03-plots">0</td>
             </tr>
         </table>
-        
+
     </main>
 </section>
-    <span id="text" class="container nomargin"></span>
+<span id="text" class="container nomargin"></span>
+<article class="github">
+<a href="https://github.com/gabyvespasiano" target="_blank">
+    <svg class="github-logo" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
+        <path fill-rule="evenodd" fill="#000" d="M8 .5a7.5 7.5 0 0 0-2.372 14.598c.374.069.51-.162.51-.362 0-.178-.006-.646-.01-1.266-2.086.454-2.526-.966-2.526-.966-.34-.866-.828-1.098-.828-1.098-.676-.463.052-.453.052-.453.748.052 1.14.769 1.14.769.664 1.14 1.742.812 2.164.622.067-.463.258-.77.471-.947-1.648-.187-3.383-.823-3.383-3.662 0-.81.288-1.475.764-1.995-.077-.187-.33-.943.072-1.965 0 0 .624-.2 2.034.762a7.15 7.15 0 0 1 3.722 0c1.41-.962 2.034-.762 2.034-.762.402 1.022.15 1.778.073 1.965.476.52.764 1.185.764 1.995 0 2.845-1.738 3.473-3.392 3.656.267.229.505.68.505 1.372 0 .99-.009 1.788-.009 2.028 0 .2.134.433.513.36A7.5 7.5 0 0 0 8 .5"/>
+    </svg>
+    gabyvespasiano on GitHub
+</a>
+</article>
+    
         <script src="main.js"></script>
     </body>
 </html>

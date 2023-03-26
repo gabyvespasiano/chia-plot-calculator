@@ -82,9 +82,15 @@ const hdd_predef= {
 const spaceInput = document.getElementById("space");
 const spaceUnit = document.getElementById("space-unit");
 const plotType = document.getElementById("plot-type");
+const plotType_label = document.getElementById("plot-label");
+
 const efic_plotType = document.getElementById("eficient-plot-type");
+const efic_label = document.getElementById("eficient-label");
+
 const HDD = document.getElementById("HDD");
 const plotk = document.getElementById("plot-k");
+const plotk_label = document.getElementById("plot-k_label");
+
 const type = document.getElementById("type");
 const resultsTableDiv = document.getElementById("results-table");
 
@@ -140,9 +146,16 @@ function actives(a){
       eficient.classList.remove("active");
     
       norm_cont.classList.remove("hidden");
+      plotType.classList.remove("hidden");
+      plotType_label.classList.remove("hidden");
+
       k32_cont.classList.add("hidden");
+      plotk.classList.add("hidden");
+      plotk_label.classList.add("hidden");
+
       eficient_cont.classList.add("hidden");
-    
+      efic_plotType.classList.add("hidden");
+      efic_label.classList.add("hidden");
 
       break;
     case "ck32":
@@ -150,9 +163,18 @@ function actives(a){
       norm.classList.remove("active"); 
       eficient.classList.remove("active");
     
-      k32_cont.classList.remove("hidden");
+      
       norm_cont.classList.add("hidden");
+      plotType.classList.add("hidden");
+      plotType_label.classList.add("hidden");
+
+      k32_cont.classList.remove("hidden");
+      plotk.classList.remove("hidden");
+      plotk_label.classList.remove("hidden");
+
       eficient_cont.classList.add("hidden");
+      efic_plotType.classList.add("hidden");
+      efic_label.classList.add("hidden");
     
   
       break;
@@ -161,9 +183,17 @@ function actives(a){
       norm.classList.remove("active"); 
       eficient.classList.add("active");
     
-      k32_cont.classList.add("hidden");
       norm_cont.classList.add("hidden");
+      plotType.classList.add("hidden");
+      plotType_label.classList.add("hidden");
+
+      k32_cont.classList.add("hidden");
+      plotk.classList.add("hidden");
+      plotk_label.classList.add("hidden");
+
       eficient_cont.classList.remove("hidden");
+      efic_plotType.classList.remove("hidden");
+      efic_label.classList.remove("hidden");
     
   
       break;
