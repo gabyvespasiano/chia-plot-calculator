@@ -117,6 +117,13 @@ norm.addEventListener("click",normal);
 ck32.addEventListener("click",ccompared);
 eficient.addEventListener("click",efic);
 
+function onload(){
+
+  if (localStorage.getItem("type") != null){
+    type.value = localStorage.getItem("type");
+  }
+}
+
 function hdd_set(){
   text.innerText = "";
   if (HDD.value != "0"){
@@ -125,6 +132,7 @@ function hdd_set(){
   checkactive();
 }
 function typee(){
+  localStorage.setItem("type", type.value);
   hdd_set()
 }
 function normal(){
@@ -495,3 +503,4 @@ function eficiente(){
     }
   }
 }
+onload();
