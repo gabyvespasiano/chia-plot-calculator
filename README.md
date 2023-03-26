@@ -1,13 +1,13 @@
 ## Selectores de idioma
 - [Español](README.md)
-- [English](README-EN.md)
+- [English](README.en.md)
 
 # Calculadora de Chia Coin
 
 Esta es una calculadora especializada en Chia Coin, una criptomoneda que utiliza un método de minería conocido como "Proof of Space and Time" (Prueba de Espacio y Tiempo). La calculadora te permitirá calcular cuántos plots de Chia Coin caben en un disco, así como la combinación óptima para maximizar la capacidad de almacenamiento y minimizar el consumo de energía.
 
 ## USAR
-###-Link: https://gabyvespasiano.github.io/chia-plot-calculator/
+### -Link: https://gabyvespasiano.github.io/chia-plot-calculator/
 
 ## Funciones
 
