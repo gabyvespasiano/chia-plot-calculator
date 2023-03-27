@@ -1,69 +1,60 @@
-:root {
-    --color-primario: #0B2559;
-    --color-secundario: #183B59;
-    --color-terciario: #2A5159;
-    --color-fondo: #327355;
-    --color-texto: #5C8C46;
-  }
-body{
-    margin: 0;
-    font-family: "Roboto", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: left;
+body{margin:0;
+    font-family: "Roboto", sans-serif;    
+    font-size:1rem;
+    font-weight:400;
+    line-height:1.5;
+    text-align:left;
     background-color: #1d202b;
     color: #cfd0d1;
 }
-
 *, :after, :before {
     box-sizing: border-box;
 }
-
 .active{
-    color: #00e0ff;
+    color: aqua;
 }
-
 .hidden{
     display: none;
 }
-
 .right{
     padding-right: 20px;
 }
-
 nav {
-  width: 100%;
-  height: 50px;
-  background-color: var(--color-primario);
-  color: var(--color-texto);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
+    width: 100%;
+    height: 50px;
+    background-color: #192345;
+    color: #fff;
 
-ul {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  
+  ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-}
-
-li {
+  }
+  
+  li {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
     margin: 0 10px;
-}
-
-a {
+  }
+  
+  
+  a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    font-family: "Helvetica Neue", sans-serif;
-}
-
+  }
 table {
+    margin-top: 20px;
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 1rem;
@@ -72,22 +63,34 @@ table {
     background-color: #1d202b;
     color: #cfd0d1;
 }
-
 .b{
     font-weight: bold;
 }
-
 th, td {
     text-align: center;
     padding: 8px;
-    border: 1px solid #4d4d4d;
+    border: 1px solid black;
 }
-
 th {
-    background-color: #36393f;
-    color: #cfd0d1;
+    background-color: #333;
 }
-
+.roww{
+    background-color: #2a2e3b;
+}
+.github{
+    text-align: center;
+}
+.github a{
+    color: #636d8d;
+}
+.github-logo {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+    vertical-align: middle;
+    fill: #000;
+}
 input[type=number] {
     width: 100px;
     padding: 5px;
@@ -96,7 +99,7 @@ input[type=number] {
     border-bottom-left-radius: 0.25rem;
     color: #cfd0d1;
     background-color: #2f3136;
-    border: 1px solid #4d4d4d;
+    border: 1px solid #000;
 }
 
 select {
@@ -107,13 +110,11 @@ select {
     border-bottom-right-radius: 0.25rem;
     color: #cfd0d1;
     background-color: #2f3136;
-    border: 1px solid #4d4d4d;
+    border: 1px solid #000;
 }
-
 .label{
     padding: 4px;
 }
-
 .container{
     width: 100%;
     padding-right: 15px;
@@ -122,11 +123,9 @@ select {
     margin-left: auto;
     margin-top: 2em;
 }
-
 .nomargin{
     margin-top: unset;
 }
-
 .row {
     display: flex;
     flex-wrap: nowrap;
@@ -134,23 +133,12 @@ select {
     margin-left: -15px;
     flex-direction: column;
 }
-
 span{
     display: inherit;
 }
-
 @media (min-width: 576px){
     .container {
         max-width: 540px;
     }
-}
-
-/* Aspecto futurista */
-body{
-    background-color: #0a0c10;
-    color: #fff;
-}
-
-nav{
-    background-color: #0a0ca0
+    
 }
