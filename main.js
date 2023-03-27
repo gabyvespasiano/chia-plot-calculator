@@ -196,8 +196,8 @@ function actives(a){
       plotType_label.classList.add("hidden");
 
       k32_cont.classList.add("hidden");
-      plotk.classList.add("hidden");
-      plotk_label.classList.add("hidden");
+      plotk.classList.remove("hidden");
+      plotk_label.classList.remove("hidden");
 
       eficient_cont.classList.remove("hidden");
       efic_plotType.classList.remove("hidden");
