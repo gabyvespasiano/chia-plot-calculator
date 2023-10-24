@@ -22,7 +22,18 @@ const plotSizes = {
     "C6" : {"k30": 19.488,"k31": 39.965,"k32": 81.819 , "k33": 167.804, "k34": 343.597},
     "C7" : {"k30": 19.048,"k31": 39.138,"k32": 80.101 , "k33": 163.230, "k34": 332.430},
     "C8" : {"k30": 18.372,"k31": 37.506,"k32": 76.557 , "k33": 156.251, "k34": 324.648},
-    "C9" : {"k30": 17.502,"k31": 35.863,"k32": 73.121 , "k33": 150.645, "k34": 310.077}
+    "C9" : {"k30": 17.502,"k31": 35.863,"k32": 73.121 , "k33": 150.645, "k34": 310.077},
+
+    "C11": {"k30": 1, "k31": 1, "k32": 92.019, "k33": 188.012, "k34": 1},
+    "C12": {"k30": 1, "k31": 1, "k32": 88.583, "k33": 181.247, "k34": 1},
+    "C13": {"k30": 1, "k31": 1, "k32": 84.718, "k33": 173.409, "k34": 1},
+    "C14": {"k30": 1, "k31": 1, "k32": 80.208, "k33": 164.175, "k34": 1},
+    "C15": {"k30": 1, "k31": 1, "k32": 76.879, "k33": 156.766, "k34": 1},
+    "C16": {"k30": 1, "k31": 1, "k32": 69.578, "k33": 142.270, "k34": 1},
+    "C17": {"k30": 1, "k31": 1, "k32": 67.645, "k33": 137.439, "k34": 1},
+    "C18": {"k30": 1, "k31": 1, "k32": 64.102, "k33": 130.244, "k34": 1},
+    "C19": {"k30": 1, "k31": 1, "k32": 60.559, "k33": 123.265, "k34": 1},
+    "C20": {"k30": 1, "k31": 1, "k32": 57.015, "k33": 116.286, "k34": 1}
   },
   "GIB": {
     "NA" : {"k30": 23.900,"k31": 50.000,"k32": 101.400, "k33": 208.800, "k34": 429.800},
@@ -34,7 +45,18 @@ const plotSizes = {
     "C6" : {"k30": 18.150,"k31": 37.220,"k32": 76.200 , "k33": 156.280, "k34": 320.000},
     "C7" : {"k30": 17.740,"k31": 36.450,"k32": 74.600 , "k33": 152.020, "k34": 309.600},
     "C8" : {"k30": 17.110,"k31": 34.930,"k32": 71.300 , "k33": 145.520, "k34": 302.353},
-    "C9" : {"k30": 16.300,"k31": 33.400,"k32": 68.100 , "k33": 140.299, "k34": 288.782}
+    "C9" : {"k30": 16.300,"k31": 33.400,"k32": 68.100 , "k33": 140.299, "k34": 288.782},
+
+    "C11" : {"k30": 1,"k31": 1,"k32": 85.700 , "k33": 175.100, "k34": 1},
+    "C12" : {"k30": 1,"k31": 1,"k32": 82.500 , "k33": 168.800, "k34": 1},
+    "C13" : {"k30": 1,"k31": 1,"k32": 78.900 , "k33": 161.500, "k34": 1},
+    "C14" : {"k30": 1,"k31": 1,"k32": 74.700 , "k33": 152.900, "k34": 1}, //valor k33 temporal
+    "C15" : {"k30": 1,"k31": 1,"k32": 71.600 , "k33": 146.000, "k34": 1},
+    "C16" : {"k30": 1,"k31": 1,"k32": 64.800 , "k33": 132.500, "k34": 1},
+    "C17" : {"k30": 1,"k31": 1,"k32": 63.000 , "k33": 128.000, "k34": 1},
+    "C18" : {"k30": 1,"k31": 1,"k32": 59.700 , "k33": 121.300, "k34": 1},
+    "C19" : {"k30": 1,"k31": 1,"k32": 56.400 , "k33": 114.800, "k34": 1},
+    "C20" : {"k30": 1,"k31": 1,"k32": 53.100 , "k33": 108.300, "k34": 1}
   }
   };
 
@@ -53,7 +75,18 @@ const ctype = {
   "C6":"C5",
   "C7":"C6",
   "C8":"C7",
-  "C9":"C8"
+  "C9":"C8",
+
+  "C11":"C11",
+  "C12":"C11",
+  "C13":"C12",
+  "C14":"C13",
+  "C15":"C14",
+  "C16":"C15",
+  "C17":"C16",
+  "C18":"C17",
+  "C19":"C18",
+  "C20":"C19"
 }
 const hdd_predef= {
   "GB": {
@@ -392,6 +425,46 @@ function calculateK32(){
     c9: {
       numberOfK32Plots: 0,
       spaceUsedInGb: 0
+    },
+    c11: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c12: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c13: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c14: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c15: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c16: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c17: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c18: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c19: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
+    },
+    c20: {
+      numberOfK32Plots: 0,
+      spaceUsedInGb: 0
     }
   }
 
@@ -425,6 +498,36 @@ function calculateK32(){
     n.c9.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C9[plotk.value]);
     n.c9.spaceUsedInGb = n.c9.numberOfK32Plots * plotSizes[type.value].C9[plotk.value];
 
+    n.c11.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C11[plotk.value]);
+    n.c11.spaceUsedInGb = n.c11.numberOfK32Plots * plotSizes[type.value].C11[plotk.value];
+
+    n.c12.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C12[plotk.value]);
+    n.c12.spaceUsedInGb = n.c12.numberOfK32Plots * plotSizes[type.value].C12[plotk.value];
+
+    n.c13.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C13[plotk.value]);
+    n.c13.spaceUsedInGb = n.c13.numberOfK32Plots * plotSizes[type.value].C13[plotk.value];
+
+    n.c14.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C14[plotk.value]);
+    n.c14.spaceUsedInGb = n.c14.numberOfK32Plots * plotSizes[type.value].C14[plotk.value];
+
+    n.c15.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C15[plotk.value]);
+    n.c15.spaceUsedInGb = n.c15.numberOfK32Plots * plotSizes[type.value].C15[plotk.value];
+
+    n.c16.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C16[plotk.value]);
+    n.c16.spaceUsedInGb = n.c16.numberOfK32Plots * plotSizes[type.value].C16[plotk.value];
+
+    n.c17.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C17[plotk.value]);
+    n.c17.spaceUsedInGb = n.c17.numberOfK32Plots * plotSizes[type.value].C17[plotk.value];
+
+    n.c18.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C18[plotk.value]);
+    n.c18.spaceUsedInGb = n.c18.numberOfK32Plots * plotSizes[type.value].C18[plotk.value];
+
+    n.c19.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C19[plotk.value]);
+    n.c19.spaceUsedInGb = n.c19.numberOfK32Plots * plotSizes[type.value].C19[plotk.value];
+
+    n.c20.numberOfK32Plots = Math.floor(val / plotSizes[type.value].C20[plotk.value]);
+    n.c20.spaceUsedInGb = n.c20.numberOfK32Plots * plotSizes[type.value].C20[plotk.value];
+
     cargar(n,val);
 }
 function cargar(resultado,valor){
@@ -457,6 +560,36 @@ document.getElementById("c8g").innerHTML= resultado.c8.spaceUsedInGb.toFixed(3) 
 
 document.getElementById("c9").innerText= resultado.c9.numberOfK32Plots;
 document.getElementById("c9g").innerHTML= resultado.c9.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c9.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c11").innerText= resultado.c11.numberOfK32Plots;
+document.getElementById("c11g").innerHTML= resultado.c11.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c11.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c12").innerText= resultado.c12.numberOfK32Plots;
+document.getElementById("c12g").innerHTML= resultado.c12.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c12.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c13").innerText= resultado.c13.numberOfK32Plots;
+document.getElementById("c13g").innerHTML= resultado.c13.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c13.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c14").innerText= resultado.c14.numberOfK32Plots;
+document.getElementById("c14g").innerHTML= resultado.c14.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c14.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c15").innerText= resultado.c15.numberOfK32Plots;
+document.getElementById("c15g").innerHTML= resultado.c15.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c15.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c16").innerText= resultado.c16.numberOfK32Plots;
+document.getElementById("c16g").innerHTML= resultado.c16.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c16.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c17").innerText= resultado.c17.numberOfK32Plots;
+document.getElementById("c17g").innerHTML= resultado.c17.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c17.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c18").innerText= resultado.c18.numberOfK32Plots;
+document.getElementById("c18g").innerHTML= resultado.c18.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c18.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c19").innerText= resultado.c19.numberOfK32Plots;
+document.getElementById("c19g").innerHTML= resultado.c19.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c19.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
+
+document.getElementById("c20").innerText= resultado.c20.numberOfK32Plots;
+document.getElementById("c20g").innerHTML= resultado.c20.spaceUsedInGb.toFixed(3) + " " + type.value + " (≈<strong>" + (resultado.c20.spaceUsedInGb/valor*100).toFixed(2) + "%</strong>)";
 }
 
 function eficiente(){
